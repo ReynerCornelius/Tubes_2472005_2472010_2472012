@@ -15,9 +15,24 @@ def peminjam(cek):
     peminjam_nrp[1] = 2472005
     peminjam_nrp[2] = 2472010
     nrp = int(input("Nrp :"))
-        if peminjam_nrp[i] == nrp:
-            print(f"Selamat datang {peminjam_nama[i]} - {peminjam_nrp[i]}")
+    indeks = cari_peminjam(nrp)
+    if nrp == peminjam_nrp[indeks]:
+        print(f"Selamat datang {peminjam_nama[indeks]} - {peminjam_nrp[indeks]}")
+    else:
+        print("Nrp tidak terdaftar")
+        return 0
         
+def cari_peminjam(nrp):
+    kita = 3
+    peminjam_nrp = kita * [None]
+    peminjam_nrp[0] = 2472012
+    peminjam_nrp[1] = 2472005
+    peminjam_nrp[2] = 2472010
+    for i in range (0,kita,1):
+        if nrp == peminjam_nrp[i]:
+            return i
+    return 0
+
 # def daftar(cek):
 
 def main():
