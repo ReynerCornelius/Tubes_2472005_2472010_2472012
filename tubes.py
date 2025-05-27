@@ -15,13 +15,10 @@ def peminjam(cek):
     peminjam_nrp[1] = 2472005
     peminjam_nrp[2] = 2472010
     nrp = int(input("Nrp :"))
-    for i in range (0,kita,1):
         if peminjam_nrp[i] == nrp:
-            # jadi setelah memenuhi kondisi ia akan print selamat datang nama dan nrp tersebut
             print(f"Selamat datang {peminjam_nama[i]} - {peminjam_nrp[i]}")
         
-def daftar(cek):
-    print('test')
+# def daftar(cek):
 
 def main():
 # Perintah Input
