@@ -21,7 +21,7 @@ def peminjam(cek):
             print(f"Selamat datang {peminjam_nama[i]} - {peminjam_nrp[i]}")
         
 def daftar(cek):
-    print('test')
+    print('test test')
 
 def main():
 # Perintah Input
