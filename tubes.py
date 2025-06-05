@@ -80,6 +80,7 @@ def lihatbuku():
     kategori_list = ['Science', 'Sejarah', 'Novel', 'Majalah']
     print("\n===== DAFTAR BUKU PER KATEGORI (Matriks) =====")
     for kategori in kategori_list:
+        print()
         print(f"KATEGORI: {kategori}")
         print("====================================")
         print("Judul Buku - Stok - Aisle")
@@ -106,7 +107,7 @@ def lihatbuku():
         pinjamBuku()
         print()
     elif pilihan == '0':
-        print("Kembali berhasil.")
+        print("Kembali berhasil. ke menu peminjam.")
         menu()
     else:
         print("Pilihan tidak valid.")
