@@ -1,9 +1,17 @@
-
-Novel,DEF,2,C
-Novel,DEF,2,C
-Novel,DEF,2,C
-Novel,DEF,2,C
-Majalah,DEF,2,D
-Majalah,DEF,2,D
-Majalah,DEF,2,D
-Majalah,DEF,2,D
+Kategori,Judul,Stok,Aisle
+Science,Farmacy,2,A1
+Science,Berserk,3,A3
+Science,Physics Today,5,B1
+Science,Quantum Leap,4,A2
+Sejarah,Sejarah Dunia,3,B2
+Sejarah,Indonesia Merdeka,2,B3
+Sejarah,Perang Dunia II,1,B4
+Sejarah,Dinasti Ming,4,B5
+Novel,Laskar Pelangi,5,C1
+Novel,Ayat-Ayat Cinta,3,C2
+Novel,Bumi,2,C3
+Novel,Negeri 5 Menara,4,C4
+Majalah,National Geographic,6,D1
+Majalah,Tempo,5,D2
+Majalah,Reader’s Digest,3,D3
+Majalah,Majalah Bobo,7,D4

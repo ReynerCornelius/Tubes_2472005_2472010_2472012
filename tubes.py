@@ -47,8 +47,8 @@ def menu():
     print("Selamat datang di Menu untuk Peminjam")
     print("0. Logout")
     print("1. Lihat Buku")
-    print("2. Pinjam Buku")
-    print("3. Ruang Diskusi")
+    print("2. Setor Buku")
+    print("3. Menyewa Ruang Diskusi")
     print("==============================")
     pilihan = input("Masukkan pilihan (0/1/2/3): ")
     if pilihan == '1':
@@ -65,43 +65,51 @@ def menu():
         print("Pilihan tidak valid.")
 
 def lihatbuku():
-    # kategori buku
-    # berdasarkan judul, stok, dan aisle nya
-    kategori = 4
-    science = [['Farmacy',2,'A1'],['Berserk',3,'A3'],['Berserk',3,'A3'],['Berserk',3,'A3']] 
-    sejarah = [['Farmacy',2,'A1'],['Berserk',3,'A3'],['Berserk',3,'A3'],['Berserk',3,'A3']]
-    novel = [['Farmacy',2,'A1'],['Berserk',3,'A3'],['Berserk',3,'A3'],['Berserk',3,'A3']]
-    majalah = [['Farmacy',2,'A1'],['Berserk',3,'A3'],['Berserk',3,'A3'],['Berserk',3,'A3']]
-    print()
-    print("===== DAFTAR BUKU PER KATEGORI =====")
-    print("KATEGORI: Science")
-    print("====================================")
-    print("stok = ",)
-    print("====================================")
-    for i in range(0, kategori, 1):
-        print(science[i][0], "-", science[i][1], "-", science[i][2])
-    print()
-    print("KATEGORI: Sejarah")
-    print("====================================")
-    print("stok = ",)
-    print("====================================")
-    for i in range(0, kategori, 1):
-        print(sejarah[i][0], "-", sejarah[i][1], "-", sejarah[i][2])
-    print()
-    print("KATEGORI: Novel")
-    print("====================================")
-    print("stok = ",)
-    print("====================================")
-    for i in range(0, kategori, 1):
-        print(novel[i][0], "-", novel[i][1], "-", novel[i][2])
-    print()
-    print("KATEGORI: Majalah")
-    print("====================================")
-    print("stok = ",)
-    print("====================================")
-    for i in range(0, kategori, 1):
-        print(majalah[i][0], "-", majalah[i][1], "-", majalah[i][2])
-    print("________________________________________")
+    # Disini saya gunakan array dua dimensi atau matriks sebagai menyimpan semua data dari file CSV
+    # dengan format setiap: [Kategori, Judul, Stok, Aisle]
+    matriks_buku = []
+    with open('Buku.csv', newline='', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        next(reader)  
+        for row in reader:
+            kategori = row[0]
+            judul = row[1]
+            stok = int(row[2]) 
+            aisle = row[3]
+            matriks_buku.append([kategori, judul, stok, aisle])
+    kategori_list = ['Science', 'Sejarah', 'Novel', 'Majalah']
+    print("\n===== DAFTAR BUKU PER KATEGORI (Matriks) =====")
+    for kategori in kategori_list:
+        print(f"KATEGORI: {kategori}")
+        print("====================================")
+        print("Judul Buku - Stok - Aisle")
+        print("------------------------------------")
+        total_stok = 0 
+        for row in matriks_buku:
+            kategori_buku = row[0]
+            judul = row[1]
+            stok = row[2]
+            aisle = row[3]
+            if kategori_buku == kategori:
+                print(f"{judul} - {stok} - {aisle}")
+                total_stok += stok
+        print("------------------------------------")
+        print(f"Total Stok buku yang ada di Kategori {kategori}: {total_stok}")
+    print("=========================================")
+    print("Berikut adalah daftar buku yang tersedia:")
+    print("Apakah anda ingin meminjam buku? Atau ingin kembali ke menu utama?")
+    print("0. Kembali")
+    print("1. Pinjam Buku")
+    print("==============================")
+    pilihan = input("Masukkan pilihan (0/1): ")
+    if pilihan == '1':
+        pinjamBuku()
+        print()
+    elif pilihan == '0':
+        print("Kembali berhasil.")
+        menu()
+    else:
+        print("Pilihan tidak valid.")
     
 def daftar():
     print("NRP anda belum terdaftar!") 
@@ -133,6 +141,7 @@ def daftars():
     
 def pinjamBuku():
     return
+
 def main():
 # Perintah Input
     print("Selamat Datang di Perpustakaan Maranatha!!")
@@ -152,7 +161,6 @@ def main():
         print("Terima kasih telah menggunakan layanan kami.")
     else:
         print("Pilihan tidak valid.")
-    
 # Perintah Proses
     
 # Perintah Output
